@@ -5,6 +5,7 @@ var GEM_MIN = 10; // maximum limit on the gold that can be found, this could als
 var LIVES_CURRENCY_CODE = "LV"; // currecny code for our Lives VC
 var GEMS_CURRENCY_CODE = "GM"; // currency code for our Gems VC
 
+
 handlers.Battle = function(args) {
 	// get the calling player's inventory and VC balances
 	var GetUserInventoryRequest = {
