@@ -35,8 +35,16 @@ handlers.CheckIn = function(args) {
 	log.info("tracker");
 	log.info(tracker);
 
-	var isPass = (parseInt(Date.now()) > parseInt(tracker[TRACKER_NEXT_GRANT]));
+	var now = parseInt(Date.now());
+	var nextEligibleGrant = parseInt(tracker[TRACKER_NEXT_GRANT]);
+	log.info("1 " + now);
+	log.info("2 " + nextEligibleGrant);
+
+	var isPass = (now > nextEligibleGrant);
 	log.info("isPass " + isPass);
+
+	var moreThan = (1 > 0)
+	log("(1 > 0) ? " + moreThan);
 
 	if (isPass) {
 		// Eligible for an item grant.
