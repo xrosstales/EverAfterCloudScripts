@@ -36,7 +36,7 @@ handlers.CheckIn = function(args) {
 	log.info(tracker);
 
 	var now = parseInt(Date.now());
-	var nextEligibleGrant = parseInt(tracker[TRACKER_NEXT_GRANT]);
+	var nextEligibleGrant = parseInt(tracker.NextEligibleGrant);
 	log.info("1 " + now);
 	log.info("2 " + nextEligibleGrant);
 
@@ -49,7 +49,7 @@ handlers.CheckIn = function(args) {
 	if (isPass) {
 		// Eligible for an item grant.
 		//check to ensure that it has been less than 24 hours since the last grant window opened
-		var timeWindow = new Date(parseInt(tracker[TRACKER_NEXT_GRANT]));
+		var timeWindow = new Date(nextEligibleGrant);
 		timeWindow.setDate(timeWindow.getDate() + 1); // add 1 day 
 
 		if (Date.now() > timeWindow.getTime()) {
