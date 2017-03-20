@@ -36,7 +36,7 @@ handlers.CheckIn = function(args) {
 	log.info(tracker);
 
 	var now = parseInt(Date.now());
-	var nextEligibleGrant = parseInt(tracker.NextEligibleGrant);
+	var nextEligibleGrant = tracker.NextEligibleGrant;
 	log.info("1 " + now);
 	log.info("2 " + nextEligibleGrant);
 
