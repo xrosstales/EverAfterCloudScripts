@@ -43,10 +43,17 @@ handlers.CheckIn = function(args) {
 	log.info(tracker.NextEligibleGrant);
 
 	log.info(".Value");
-	log.info(tracker["LoginStreak"].Value);
-	log.info(tracker["NextEligibleGrant"].Value);
+	log.info(tracker["LoginStreak"]);
+	log.info(tracker["NextEligibleGrant"]);
 
 	log.info("end tracker");
+
+	var modTracker = JSON.parse(JSON.stringify(tracker));
+	log.info("modTracker");
+	log.info(modTracker);
+	log.info(modTracker.LoginStreak);
+	log.info(modTracker.NextEligibleGrant);
+	log.info("end modTracker");
 
 	var now = parseInt(Date.now());
 	var nextEligibleGrant = tracker.NextEligibleGrant;
