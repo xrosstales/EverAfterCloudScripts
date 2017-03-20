@@ -46,8 +46,8 @@ handlers.CheckIn = function(args) {
 	log.info("Object.keys(tracker)");
 	log.info(Object.keys(tracker));
 
-	log.info("Object.values(tracker)");
-	log.info(Object.values(tracker));
+	//log.info("Object.values(tracker)");
+	//log.info(Object.values(tracker));
 
 	log.info("end tracker");
 
