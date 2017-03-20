@@ -21,8 +21,6 @@ handlers.CheckIn = function(args) {
 	var tracker = {}; // this would be the first login ever (across any title), so we have to make sure our record exists.
 	if (GetUserReadOnlyDataResponse.Data.hasOwnProperty(CHECK_IN_TRACKER)) {
 		tracker = JSON.parse(GetUserReadOnlyDataResponse.Data[CHECK_IN_TRACKER].Value);
-		log.info("JSON.parse");
-		log.info(tracker);
 
 	} else {
 		tracker = ResetTracker();
@@ -33,8 +31,7 @@ handlers.CheckIn = function(args) {
 		log.info("This was your first login, Login tomorrow to get a bonus!");
 		return JSON.stringify([]);
 	}
-	log.info("Date.now()");
-	log.info(Date.now());
+
 	log.info("tracker");
 	log.info(tracker);
 
@@ -46,14 +43,13 @@ handlers.CheckIn = function(args) {
 	log.info(tracker["LoginStreak"]);
 	log.info(tracker["NextEligibleGrant"]);
 
-	log.info("end tracker");
+	log.info("Object.keys(tracker)");
+	log.info(Object.keys(tracker));
 
-	var modTracker = JSON.parse(JSON.stringify(tracker));
-	log.info("modTracker");
-	log.info(modTracker);
-	log.info(modTracker.LoginStreak);
-	log.info(modTracker.NextEligibleGrant);
-	log.info("end modTracker");
+	log.info("Object.values(tracker)");
+	log.info(Object.values(tracker));
+
+	log.info("end tracker");
 
 	var now = parseInt(Date.now());
 	var nextEligibleGrant = tracker.NextEligibleGrant;
