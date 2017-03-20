@@ -30,7 +30,9 @@ handlers.CheckIn = function(args) {
 		log.info("This was your first login, Login tomorrow to get a bonus!");
 		return JSON.stringify([]);
 	}
-
+	
+	log.info("tracker");
+	log.info(tracker);
 
 	if (Date.now() > parseInt(tracker[TRACKER_NEXT_GRANT])) {
 		// Eligible for an item grant.
