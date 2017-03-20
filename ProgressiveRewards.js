@@ -9,6 +9,8 @@ var TRACKER_LOGIN_STREAK = "LoginStreak"; // CHECK_IN_TRACKER property containin
 
 handlers.CheckIn = function(args) {
 
+	log.info("CheckIn...");
+
 	var GetUserReadOnlyDataRequest = {
 		"PlayFabId": currentPlayerId,
 		"Keys": [CHECK_IN_TRACKER]
