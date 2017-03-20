@@ -30,7 +30,8 @@ handlers.CheckIn = function(args) {
 		log.info("This was your first login, Login tomorrow to get a bonus!");
 		return JSON.stringify([]);
 	}
-	
+	log.info("Date.now()");
+	log.info(Date.now());
 	log.info("tracker");
 	log.info(tracker);
 
