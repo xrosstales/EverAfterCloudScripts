@@ -4,7 +4,7 @@ handlers.HelloWorld = function(args) {
 	return result;
 }
 
-handlers.TestJsObject - function(args) {
+handlers.TestJsObject = function(args) {
 
 	var result = {};
 	var tracker = JSON.parse("{\"LoginStreak\":1,\"NextEligibleGrant\":1490090129539}");
@@ -21,7 +21,6 @@ handlers.TestJsObject - function(args) {
 	log.info(tracker["NextEligibleGrant"]);
 
 	log.info("end tracker");
-
 
 	return result;
 }
