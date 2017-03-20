@@ -35,7 +35,7 @@ handlers.CheckIn = function(args) {
 	log.info("tracker");
 	log.info(tracker);
 
-	var isPass = (Date.now() > parseInt(tracker[TRACKER_NEXT_GRANT]));
+	var isPass = (parseInt(Date.now()) > parseInt(tracker[TRACKER_NEXT_GRANT]));
 	log.info("isPass " + isPass);
 
 	if (isPass) {
