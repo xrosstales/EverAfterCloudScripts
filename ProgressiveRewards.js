@@ -40,16 +40,21 @@ handlers.CheckIn = function(args) {
 	log.info(tracker.NextEligibleGrant);
 
 	log.info(".Value");
-	log.info(tracker["LoginStreak"]);
-	log.info(tracker["NextEligibleGrant"]);
-
-	log.info("Object.keys(tracker)");
-	log.info(Object.keys(tracker));
-
-	//log.info("Object.values(tracker)");
-	//log.info(Object.values(tracker));
+	log.info(tracker['LoginStreak']);
+	log.info(tracker['NextEligibleGrant']);
 
 	log.info("end tracker");
+
+	tracker.LoginStreak = 1;
+	tracker.NextEligibleGrant = 0;
+
+	log.info(".");
+	log.info(tracker.LoginStreak);
+	log.info(tracker.NextEligibleGrant);
+
+	log.info(".Value");
+	log.info(tracker['LoginStreak']);
+	log.info(tracker['NextEligibleGrant']);
 
 	var now = parseInt(Date.now());
 	var nextEligibleGrant = tracker.NextEligibleGrant;
