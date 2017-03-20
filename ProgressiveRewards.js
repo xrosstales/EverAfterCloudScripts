@@ -38,11 +38,13 @@ handlers.CheckIn = function(args) {
 	log.info("tracker");
 	log.info(tracker);
 
+	log.info(".");
 	log.info(tracker.LoginStreak);
 	log.info(tracker.NextEligibleGrant);
 
-	log.info(tracker["LoginStreak"]);
-	log.info(tracker["NextEligibleGrant"]);
+	log.info(".Value");
+	log.info(tracker["LoginStreak"].Value);
+	log.info(tracker["NextEligibleGrant"].Value);
 
 	log.info("end tracker");
 
