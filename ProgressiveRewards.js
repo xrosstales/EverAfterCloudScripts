@@ -56,6 +56,13 @@ handlers.CheckIn = function(args) {
 	log.info(tracker['LoginStreak']);
 	log.info(tracker['NextEligibleGrant']);
 
+	tracker["LoginStreak"] = 1;
+	tracker["NextEligibleGrant"] = 0;
+
+	log.info("[]");
+	log.info(tracker["LoginStreak"]);
+	log.info(tracker["NextEligibleGrant"]);
+
 	var now = parseInt(Date.now());
 	var nextEligibleGrant = tracker.NextEligibleGrant;
 	log.info("1 " + now);
