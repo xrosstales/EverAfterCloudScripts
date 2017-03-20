@@ -35,6 +35,9 @@ handlers.CheckIn = function(args) {
 	log.info("tracker");
 	log.info(tracker);
 
+	log.info(tracker.LoginStreak);
+	log.info(tracker.NextEligibleGrant);
+
 	var now = parseInt(Date.now());
 	var nextEligibleGrant = tracker.NextEligibleGrant;
 	log.info("1 " + now);
@@ -43,7 +46,7 @@ handlers.CheckIn = function(args) {
 	var isPass = (now > nextEligibleGrant);
 	log.info("isPass " + isPass);
 
-	var moreThan = (1 > 0)
+	var moreThan = (1 > 0);
 	log.info("(1 > 0) ? " + moreThan);
 
 	if (isPass) {
