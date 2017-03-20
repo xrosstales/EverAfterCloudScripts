@@ -44,7 +44,7 @@ handlers.CheckIn = function(args) {
 	log.info("isPass " + isPass);
 
 	var moreThan = (1 > 0)
-	log("(1 > 0) ? " + moreThan);
+	log.info("(1 > 0) ? " + moreThan);
 
 	if (isPass) {
 		// Eligible for an item grant.
