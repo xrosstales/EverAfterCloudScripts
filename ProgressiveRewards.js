@@ -88,6 +88,8 @@ handlers.CheckIn = function(args) {
 		}
 	}
 
+	log.info("Not pass 24 hr yet, Login tomorrow to get a bonus!");
+
 	return JSON.stringify([]);
 };
 
