@@ -42,14 +42,10 @@ handlers.TestJsObjectTwo = function(args) {
 
 		log.info("dataValue");
 		log.info(dataValue);
-		/*
-		var stringifyValue = JSON.stringify(dataValue);
-		log.info("stringifyValue");
-		log.info(stringifyValue);
-		*/
+
 		log.info("JSON.parse dataValue");
 		tracker = JSON.parse(dataValue, (_key, _val) => {
-			log.info(_key + "|" + _val);
+			log.info("[] " + _key + " | " + _val + " ]");
 			return _val;
 		});
 
