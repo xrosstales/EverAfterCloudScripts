@@ -38,8 +38,16 @@ handlers.TestJsObjectTwo = function(args) {
 	var tracker = {};
 	if (GetUserReadOnlyDataResponse.Data.hasOwnProperty("CheckInTracker")) {
 
-		tracker = JSON.parse(JSON.stringify(GetUserReadOnlyDataResponse.Data["CheckInTracker"].Value));
+		var dataValue = GetUserReadOnlyDataResponse.Data["CheckInTracker"].Value;
 
+		log.info("dataValue)";
+		log.info(dataValue);
+
+		var stringifyValue =JSON.stringify(dataValue); 
+		log.info("stringifyValue");
+		log.info(stringifyValue);
+
+		tracker = JSON.parse(stringifyValue);
 		log.info("tracker");
 		log.info(tracker);
 
