@@ -20,7 +20,7 @@ handlers.CheckIn = function(args) {
 	// need to ensure that our data field exists
 	var tracker = {}; // this would be the first login ever (across any title), so we have to make sure our record exists.
 	if (GetUserReadOnlyDataResponse.Data.hasOwnProperty(CHECK_IN_TRACKER)) {
-		tracker = JSON.parse(GetUserReadOnlyDataResponse.Data[CHECK_IN_TRACKER].Value);
+		tracker = JSON.parse(JSON.stringify(GetUserReadOnlyDataResponse.Data[CHECK_IN_TRACKER].Value));
 
 	} else {
 		tracker = ResetTracker();
