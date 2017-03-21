@@ -31,14 +31,14 @@ handlers.TestJsObjectTwo = function(args) {
 
 	var GetUserReadOnlyDataRequest = {
 		"PlayFabId": currentPlayerId,
-		"Keys": [CHECK_IN_TRACKER]
+		"Keys": ["CheckInTracker"]
 	};
 	var GetUserReadOnlyDataResponse = server.GetUserReadOnlyData(GetUserReadOnlyDataRequest);
 
 	// need to ensure that our data field exists
 	var tracker = {}; // this would be the first login ever (across any title), so we have to make sure our record exists.
-	if (GetUserReadOnlyDataResponse.Data.hasOwnProperty(CHECK_IN_TRACKER)) {
-		tracker = JSON.parse(GetUserReadOnlyDataResponse.Data[CHECK_IN_TRACKER].Value);
+	if (GetUserReadOnlyDataResponse.Data.hasOwnProperty("CheckInTracker")) {
+		tracker = JSON.parse(GetUserReadOnlyDataResponse.Data["CheckInTracker"].Value);
 
 		log.info("tracker");
 		log.info(tracker);
