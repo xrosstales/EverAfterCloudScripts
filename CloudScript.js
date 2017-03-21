@@ -12,11 +12,11 @@ handlers.TestJsObject = function(args) {
 	log.info("tracker");
 	log.info(tracker);
 
-	log.info(".");
+	log.info("get field by .");
 	log.info(tracker.LoginStreak);
 	log.info(tracker.NextEligibleGrant);
 
-	log.info(".Value");
+	log.info("get field by []");
 	log.info(tracker["LoginStreak"]);
 	log.info(tracker["NextEligibleGrant"]);
 
@@ -35,24 +35,65 @@ handlers.TestJsObjectTwo = function(args) {
 	};
 	var GetUserReadOnlyDataResponse = server.GetUserReadOnlyData(GetUserReadOnlyDataRequest);
 
-	// need to ensure that our data field exists
-	var tracker = {}; // this would be the first login ever (across any title), so we have to make sure our record exists.
+	var tracker = {};
 	if (GetUserReadOnlyDataResponse.Data.hasOwnProperty("CheckInTracker")) {
+
 		tracker = JSON.parse(GetUserReadOnlyDataResponse.Data["CheckInTracker"].Value);
 
 		log.info("tracker");
 		log.info(tracker);
 
-		log.info(".");
+		log.info("get field by .");
 		log.info(tracker.LoginStreak);
 		log.info(tracker.NextEligibleGrant);
 
-		log.info(".Value");
+		log.info("get field by []");
 		log.info(tracker["LoginStreak"]);
 		log.info(tracker["NextEligibleGrant"]);
 
 		log.info("end tracker");
+
+	} else {
+
+		tracker = ResetTracker();
+
+		log.info("tracker");
+		log.info(tracker);
+
+		log.info("get field by .");
+		log.info(tracker.LoginStreak);
+		log.info(tracker.NextEligibleGrant);
+
+		log.info("get field by []");
+		log.info(tracker["LoginStreak"]);
+		log.info(tracker["NextEligibleGrant"]);
+
+		log.info("end tracker");
+		
+		UpdateTrackerData(tracker);
 	}
 
 	return result;
+
+	function ResetTracker() {
+		var reset = {};
+
+		reset[TRACKER_LOGIN_STREAK] = 1;
+
+		var dateObj = new Date(Date.now());
+		dateObj.setDate(dateObj.getDate() + 1); // add one day 
+
+		reset[TRACKER_NEXT_GRANT] = dateObj.getTime();
+		return JSON.stringify(reset);
+	}
+
+	function UpdateTrackerData(data) {
+		var UpdateUserReadOnlyDataRequest = {
+			"PlayFabId": currentPlayerId,
+			"Data": {}
+		};
+		UpdateUserReadOnlyDataRequest.Data[CHECK_IN_TRACKER] = JSON.stringify(data);
+
+		server.UpdateUserReadOnlyData(UpdateUserReadOnlyDataRequest);
+	}
 }
