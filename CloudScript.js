@@ -27,6 +27,8 @@ handlers.TestJsObject = function(args) {
 
 handlers.TestJsObjectTwo = function(args) {
 
+	var result = {};
+
 	var GetUserReadOnlyDataRequest = {
 		"PlayFabId": currentPlayerId,
 		"Keys": [CHECK_IN_TRACKER]
