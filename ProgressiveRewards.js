@@ -32,47 +32,10 @@ handlers.CheckIn = function(args) {
 		return JSON.stringify([]);
 	}
 
-	log.info("tracker");
-	log.info(tracker);
-
-	log.info(".");
-	log.info(tracker.LoginStreak);
-	log.info(tracker.NextEligibleGrant);
-
-	log.info(".Value");
-	log.info(tracker['LoginStreak']);
-	log.info(tracker['NextEligibleGrant']);
-
-	log.info("end tracker");
-
-	tracker.LoginStreak = 1;
-	tracker.NextEligibleGrant = 0;
-
-	log.info(".");
-	log.info(tracker.LoginStreak);
-	log.info(tracker.NextEligibleGrant);
-
-	log.info(".Value");
-	log.info(tracker['LoginStreak']);
-	log.info(tracker['NextEligibleGrant']);
-
-	tracker["LoginStreak"] = 1;
-	tracker["NextEligibleGrant"] = 0;
-
-	log.info("[]");
-	log.info(tracker["LoginStreak"]);
-	log.info(tracker["NextEligibleGrant"]);
-
 	var now = parseInt(Date.now());
 	var nextEligibleGrant = tracker.NextEligibleGrant;
-	log.info("1 " + now);
-	log.info("2 " + nextEligibleGrant);
 
 	var isPass = (now > nextEligibleGrant);
-	log.info("isPass " + isPass);
-
-	var moreThan = (1 > 0);
-	log.info("(1 > 0) ? " + moreThan);
 
 	if (isPass) {
 		// Eligible for an item grant.
