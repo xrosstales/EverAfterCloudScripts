@@ -118,7 +118,7 @@ function UpdateTrackerData(data) {
 		"PlayFabId": currentPlayerId,
 		"Data": {}
 	};
-	UpdateUserReadOnlyDataRequest.Data[CHECK_IN_TRACKER] = data;
+	UpdateUserReadOnlyDataRequest.Data[CHECK_IN_TRACKER] = Json.stringify(data);
 
 	server.UpdateUserReadOnlyData(UpdateUserReadOnlyDataRequest);
 }
