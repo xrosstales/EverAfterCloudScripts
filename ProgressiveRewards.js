@@ -37,6 +37,8 @@ handlers.CheckIn = function(args) {
 
 	var isPass = (now > nextEligibleGrant);
 
+	log.info("now " + now + " nextEligibleGrant " + nextEligibleGrant + " isPass " + isPass);
+
 	if (isPass) {
 		// Eligible for an item grant.
 		//check to ensure that it has been less than 24 hours since the last grant window opened
@@ -47,7 +49,6 @@ handlers.CheckIn = function(args) {
 			// streak ended :(			
 			tracker = ResetTracker();
 			UpdateTrackerData(tracker);
-
 			log.info("Your consecutive login streak has been broken. Login tomorrow to get a bonus!");
 			return JSON.stringify([]);
 		}
