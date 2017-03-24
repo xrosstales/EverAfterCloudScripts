@@ -90,7 +90,7 @@ handlers.CheckIn = function(args) {
 			if (reward) {
 				grantedItems = GrantItems(reward, tracker[TRACKER_LOGIN_STREAK]);
 			}
-			return JSON.stringify(grantedItems);
+			return grantedItems;
 		}
 	}
 
@@ -109,7 +109,7 @@ function ResetTracker() {
 	dateObj.setDate(dateObj.getDate() + 1); // add one day 
 
 	reset[TRACKER_NEXT_GRANT] = dateObj.getTime();
-	return JSON.stringify(reset);
+	return reset;
 }
 
 
@@ -129,11 +129,11 @@ function GrantItems(items, count) {
 	var parsed = Array.isArray(items) ? items : [items];
 
 	var GrantItemsToUserRequest = {
-		"PlayFabId": currentPlayerId,
-		"ItemIds": parsed,
-		"Annotation": "Granted for logging in over " + count + " consecutive days."
+		PlayFabId: currentPlayerId,
+		ItemIds: parsed,
+		Annotation: "Granted for logging in over " + count + " consecutive days."
 	};
 
 	var GrantItemsToUserResult = server.GrantItemsToUser(GrantItemsToUserRequest);
-	return JSON.stringify(GrantItemsToUserResult.ItemGrantResults);
+	return GrantItemsToUserResult.ItemGrantResults;
 }
